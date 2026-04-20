@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yanis Noël — Portfolio BTS SIO SISR</title>
+  <meta name="description" content="Portfolio de Yanis Noël, étudiant en deuxième année de BTS SIO spécialité SISR, orienté systèmes, réseaux, cybersécurité et développement web." />
+  <meta property="og:title" content="Yanis Noël — Portfolio BTS SIO SISR" />
+  <meta property="og:description" content="Portfolio professionnel de Yanis Noël : parcours, projets, compétences et contact." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=boska@500,700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --color-bg: #f7f4ef;
+      --color-surface: #fcfbf8;
+      --color-surface-2: #f1ede6;
+      --color-border: rgba(32, 26, 20, 0.1);
+      --color-text: #1f1b16;
+      --color-text-muted: #6f695f;
+      --color-primary: #0f766e;
+      --color-primary-hover: #115e59;
+      --color-primary-soft: rgba(15, 118, 110, 0.1);
+      --color-text-inverse: #fffdfa;
+      --shadow-sm: 0 4px 14px rgba(25, 18, 12, 0.06);
+      --shadow-md: 0 14px 40px rgba(25, 18, 12, 0.08);
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --radius-xl: 2rem;
+      --radius-full: 999px;
+      --font-body: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+      --font-display: "Boska", Georgia, serif;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #141311;
+      --color-surface: #1b1917;
+      --color-surface-2: #23211e;
+      --color-border: rgba(255, 250, 245, 0.09);
+      --color-text: #efeae3;
+      --color-text-muted: #b5aea4;
+      --color-primary: #64d2c8;
+      --color-primary-hover: #8be3da;
+      --color-primary-soft: rgba(100, 210, 200, 0.12);
+      --color-text-inverse: #141311;
+      --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 14px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 6.5rem;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.06), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(217, 119, 6, 0.05), transparent 22%);
+    }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a, button {
+      transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition),
+        opacity var(--transition);
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 0.75rem;
+    }
+    .skip-link {
+      position: absolute;
+      top: -5rem;
+      left: 1rem;
+      z-index: 100;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      text-decoration: none;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-md);
+    }
+    .skip-link:focus { top: 1rem; }
+    .site-header {
+      background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+    }
+    .site-header.scrolled {
+      border-color: var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .display-font { font-family: var(--font-display); }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 2.2rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-full);
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .nav-link {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--color-text); }
+    .primary-btn, .secondary-btn, .filter-btn, .social-chip {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .primary-btn {
+      padding: 0.95rem 1.3rem;
+      border-radius: var(--radius-full);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-md);
+    }
+    .primary-btn:hover { background: var(--color-primary-hover); transform: translateY(-1px); }
+    .secondary-btn {
+      padding: 0.95rem 1.3rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      background: transparent;
+    }
+    .secondary-btn:hover { background: var(--color-surface-2); transform: translateY(-1px); }
+    .hero-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .hero-card, .contact-card, .timeline-card, .metric-card, .project-card, .about-card, .skill-card {
+      background: color-mix(in srgb, var(--color-surface) 92%, white 8%);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      border-radius: var(--radius-lg);
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(15, 118, 110, 0.2), transparent 30%),
+        radial-gradient(circle at 78% 30%, rgba(217, 119, 6, 0.14), transparent 28%),
+        linear-gradient(160deg, var(--color-surface-2), var(--color-surface));
+    }
+    .hero-orb, .hero-gridline { position: absolute; pointer-events: none; }
+    .hero-orb { border-radius: 999px; filter: blur(12px); opacity: 0.7; }
+    .hero-orb.one { inset: auto auto 2.5rem 2rem; width: 9rem; height: 9rem; background: rgba(15, 118, 110, 0.16); }
+    .hero-orb.two { inset: 2rem 1.5rem auto auto; width: 7rem; height: 7rem; background: rgba(217, 119, 6, 0.14); }
+    .hero-gridline {
+      inset: 1.2rem;
+      border-radius: calc(var(--radius-lg) - 0.5rem);
+      border: 1px dashed color-mix(in srgb, var(--color-border) 80%, transparent);
+    }
+    .hero-stack {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 1rem;
+      padding: 1.25rem;
+      height: 100%;
+      align-content: end;
+    }
+    .floating-panel {
+      background: color-mix(in srgb, var(--color-surface) 76%, transparent);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      border-radius: 1.25rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .metric-card, .skill-card { padding: 1.15rem; min-height: 120px; }
+    .project-card { overflow: hidden; height: 100%; position: relative; }
+    .project-card[hidden] { display: none !important; }
+    .project-thumb {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-radius: calc(var(--radius-lg) - 0.4rem);
+      background: linear-gradient(145deg, color-mix(in srgb, var(--color-primary) 12%, var(--color-surface)), var(--color-surface-2)), var(--color-surface-2);
+      border: 1px solid color-mix(in srgb, var(--color-border) 90%, transparent);
+      isolation: isolate;
+    }
+    .project-thumb::before {
+      content: "";
+      position: absolute;
+      inset: auto -1.5rem -1.5rem auto;
+      width: 10rem;
+      height: 10rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+      filter: blur(10px);
+      z-index: 0;
+    }
+    .thumb-ui {
+      position: absolute;
+      inset: 1rem;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 0.8rem;
+    }
+    .mini-bar, .mini-line, .mini-box {
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-border) 90%, transparent);
+      backdrop-filter: blur(10px);
+    }
+    .mini-bar { height: 0.8rem; width: 58%; }
+    .mini-line { height: 0.7rem; }
+    .mini-line.short { width: 62%; }
+    .mini-box { border-radius: 1rem; min-height: 5rem; display: grid; gap: 0.55rem; padding: 0.85rem; }
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: end;
+      padding: 1rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 15, 15, 0.74) 100%);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--transition), transform var(--transition);
+      z-index: 2;
+    }
+    .project-card:hover .project-overlay,
+    .project-card:focus-within .project-overlay { opacity: 1; transform: translateY(0); }
+    .overlay-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(10px);
+    }
+    .filter-btn {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      background: transparent;
+    }
+    .filter-btn:hover { background: var(--color-surface-2); color: var(--color-text); }
+    .filter-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); box-shadow: var(--shadow-sm); }
+    .timeline { position: relative; display: grid; gap: 1rem; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.7rem;
+      top: 0.35rem;
+      bottom: 0.35rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-primary-soft), color-mix(in srgb, var(--color-border) 88%, transparent));
+    }
+    .timeline-card { position: relative; margin-left: 2.2rem; padding: 1.2rem; }
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: -1.95rem;
+      top: 1.35rem;
+      width: 0.95rem;
+      height: 0.95rem;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 6px var(--color-primary-soft);
+    }
+    .social-chip, .contact-link {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      background: transparent;
+    }
+    .social-chip { padding: 0.8rem 1rem; }
+    .social-chip:hover, .contact-link:hover { background: var(--color-surface-2); transform: translateY(-1px); }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 72px;
+      padding: 1rem 1.1rem;
+      text-decoration: none;
+    }
+    .section-divider { height: 1px; background: linear-gradient(to right, transparent, var(--color-border), transparent); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (min-width: 768px) { .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: stretch; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+      .reveal, .reveal.is-visible { opacity: 1; transform: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yanis Noël",
+    "jobTitle": "Étudiant en BTS SIO SISR",
+    "email": "mailto:yanoel.sio@gmail.com",
+    "telephone": "+33749740434",
+    "address": {"@type": "PostalAddress", "addressLocality": "Cournon d’Auvergne"},
+    "sameAs": ["https://linkedin.com/in/yanis-noel/"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#contenu" class="skip-link">Aller au contenu</a>
+
+  <header class="site-header fixed inset-x-0 top-0 z-50" id="top">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <a href="#top" class="flex items-center gap-3 no-underline" aria-label="Retour en haut">
+        <svg class="h-11 w-11" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="40" height="40" rx="14" stroke="currentColor" stroke-width="2.5"></rect>
+          <path d="M16 31L24 15L32 31" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M19.5 24.5H28.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+        </svg>
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.18em]">Yanis Noël</p>
+          <p class="text-xs" style="color: var(--color-text-muted);">BTS SIO SISR • Étudiant • Réseaux & systèmes</p>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
+        <a class="nav-link" href="#accueil">Accueil</a>
+        <a class="nav-link" href="#apropos">À propos</a>
+        <a class="nav-link" href="#parcours">Parcours</a>
+        <a class="nav-link" href="#competences">Compétences</a>
+        <a class="nav-link" href="#portfolio">Projets</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button type="button" data-theme-toggle class="inline-flex h-11 w-11 items-center justify-center rounded-full border" style="border-color: var(--color-border);" aria-label="Basculer le thème">
+          <svg data-icon-sun class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"></circle><path d="M12 2.5V5M12 19V21.5M4.93 4.93L6.7 6.7M17.3 17.3L19.07 19.07M2.5 12H5M19 12H21.5M4.93 19.07L6.7 17.3M17.3 6.7L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+          <svg data-icon-moon class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 1 1 9.8 4 6.7 6.7 0 0 0 20 14.2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <button type="button" data-menu-toggle class="inline-flex h-11 w-11 items-center justify-center rounded-full border md:hidden" style="border-color: var(--color-border);" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mx-4 mb-4 hidden rounded-[1.75rem] border md:hidden" style="border-color: var(--color-border); background: color-mix(in srgb, var(--color-bg) 90%, transparent); box-shadow: var(--shadow-md); backdrop-filter: blur(12px);">
+      <nav class="flex flex-col p-3" aria-label="Navigation mobile">
+        <a class="nav-link rounded-2xl px-4 py-3" href="#accueil">Accueil</a>
+        <a class="nav-link rounded-2xl px-4 py-3" href="#apropos">À propos</a>
+        <a class="nav-link rounded-2xl px-4 py-3" href="#parcours">Parcours</a>
+        <a class="nav-link rounded-2xl px-4 py-3" href="#competences">Compétences</a>
+        <a class="nav-link rounded-2xl px-4 py-3" href="#portfolio">Projets</a>
+        <a class="nav-link rounded-2xl px-4 py-3" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section id="accueil" class="px-4 pt-28 pb-16 sm:px-6 lg:px-8 lg:pt-36 lg:pb-24">
+      <div class="mx-auto max-w-7xl space-y-8">
+        <div class="hero-grid">
+          <div class="space-y-8 reveal">
+            <span class="pill">Portfolio étudiant • BTS SIO SISR</span>
+            <div class="space-y-5">
+              <h1 class="display-font max-w-4xl text-5xl leading-[0.98] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">Étudiant en systèmes, réseaux et cybersécurité, je construis des bases techniques solides et des projets web propres.</h1>
+              <p class="max-w-2xl text-base sm:text-lg" style="color: var(--color-text-muted);">Actuellement en deuxième année de BTS SIO spécialité SISR, je développe mes compétences en administration réseau, déploiement d’infrastructures, supervision, sécurité et intégration web à travers mes stages et mes projets scolaires.</p>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <a href="#portfolio" class="primary-btn">Voir mes projets</a>
+              <a href="#contact" class="secondary-btn">Me contacter</a>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-3">
+              <article class="metric-card reveal"><p class="text-sm" style="color: var(--color-text-muted);">Formation</p><p class="mt-2 text-lg font-bold">BTS SIO SISR</p><p class="mt-1 text-sm" style="color: var(--color-text-muted);">Deuxième année en cours.</p></article>
+              <article class="metric-card reveal"><p class="text-sm" style="color: var(--color-text-muted);">Orientation</p><p class="mt-2 text-lg font-bold">Réseaux & systèmes</p><p class="mt-1 text-sm" style="color: var(--color-text-muted);">Infrastructure, sécurité, supervision.</p></article>
+              <article class="metric-card reveal"><p class="text-sm" style="color: var(--color-text-muted);">Centres d’intérêt</p><p class="mt-2 text-lg font-bold">Cybersécurité</p><p class="mt-1 text-sm" style="color: var(--color-text-muted);">Veille, réseau, environnement Linux.</p></article>
+            </div>
+          </div>
+
+          <aside class="hero-card hero-visual reveal p-4 sm:p-5 lg:p-6" aria-label="Présentation visuelle du portfolio">
+            <div class="hero-gridline"></div>
+            <div class="hero-orb one"></div>
+            <div class="hero-orb two"></div>
+            <div class="hero-stack">
+              <div class="floating-panel p-4 sm:p-5">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-sm font-bold" style="color: var(--color-text-muted);">Profil</p>
+                    <h2 class="mt-2 text-2xl font-black">Technicien réseaux en devenir</h2>
+                  </div>
+                  <span class="pill">20 ans</span>
+                </div>
+                <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-2xl p-4" style="background: var(--color-surface-2); border: 1px solid var(--color-border);"><p class="text-sm" style="color: var(--color-text-muted);">Niveau</p><p class="mt-2 font-bold">Étudiant 2e année</p></div>
+                  <div class="rounded-2xl p-4" style="background: var(--color-surface-2); border: 1px solid var(--color-border);"><p class="text-sm" style="color: var(--color-text-muted);">Localisation</p><p class="mt-2 font-bold">Cournon d’Auvergne</p></div>
+                </div>
+              </div>
+              <div class="grid gap-3 sm:grid-cols-2">
+                <div class="floating-panel p-4"><p class="text-sm" style="color: var(--color-text-muted);">Langue</p><p class="mt-2 text-base font-bold">Anglais B1</p></div>
+                <div class="floating-panel p-4"><p class="text-sm" style="color: var(--color-text-muted);">Certification</p><p class="mt-2 text-base font-bold">Cisco Networking Basics</p></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div class="section-divider"></div></div>
+
+    <section id="apropos" class="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div class="mx-auto max-w-7xl grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <article class="about-card p-6 sm:p-8 reveal">
+          <span class="pill">À propos</span>
+          <h2 class="mt-5 text-3xl font-black tracking-tight sm:text-4xl">Un profil technique en construction, orienté terrain et progression continue</h2>
+          <p class="mt-4 text-base" style="color: var(--color-text-muted);">Je suis actuellement en deuxième année de BTS SIO, spécialité SISR, avec un intérêt fort pour les systèmes, les réseaux, la cybersécurité et les environnements techniques concrets. Mon objectif est de m’investir durablement dans une structure afin de continuer à développer mon expertise technique.</p>
+          <p class="mt-4 text-base" style="color: var(--color-text-muted);">J’apprécie particulièrement les projets où il faut concevoir, déployer, sécuriser et superviser une infrastructure, tout en restant capable de produire des interfaces ou des supports web propres quand le besoin existe.</p>
+        </article>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <article class="about-card p-6 reveal"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Ce que j’aime</p><h3 class="mt-3 text-xl font-black">Infrastructure, cybersécurité et logique technique</h3><p class="mt-3 text-sm" style="color: var(--color-text-muted);">Je m’intéresse à l’architecture réseau, aux systèmes Windows et Linux, à la supervision, à la haute disponibilité et à la sécurisation des accès et des services.</p></article>
+          <article class="about-card p-6 reveal"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Méthode</p><h3 class="mt-3 text-xl font-black">Rigueur, adaptabilité et travail en équipe</h3><p class="mt-3 text-sm" style="color: var(--color-text-muted);">J’avance avec une approche structurée, de la veille collaborative et une volonté constante de comprendre les environnements sur lesquels j’interviens.</p></article>
+          <article class="about-card p-6 reveal sm:col-span-2"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Soft skills</p><div class="mt-4 flex flex-wrap gap-3"><span class="pill">Adaptabilité</span><span class="pill">Communication orale</span><span class="pill">Travail en équipe</span><span class="pill">Veille collaborative</span><span class="pill">Rigueur</span><span class="pill">Curiosité technique</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div class="section-divider"></div></div>
+
+    <section id="parcours" class="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div class="mx-auto max-w-7xl grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div class="reveal"><span class="pill">Parcours</span><h2 class="mt-5 text-3xl font-black tracking-tight sm:text-4xl">Formation, stages et réalisations techniques</h2><p class="mt-4 max-w-xl" style="color: var(--color-text-muted);">Cette timeline reprend les grandes étapes de mon parcours actuel, entre formation, stages et projets réalisés dans le cadre de mon BTS SIO SISR.</p></div>
+        <div class="timeline reveal">
+          <article class="timeline-card"><p class="text-sm font-bold" style="color: var(--color-primary);">2026</p><h3 class="mt-2 text-xl font-black">Deuxième année de BTS SIO • spécialité SISR</h3><p class="mt-2 text-sm" style="color: var(--color-text-muted);">Formation au Lycée Sidoine Apollinaire à Clermont-Ferrand, avec spécialisation en solutions d’infrastructure, systèmes et réseaux.</p></article>
+          <article class="timeline-card"><p class="text-sm font-bold" style="color: var(--color-primary);">2026</p><h3 class="mt-2 text-xl font-black">Stage : déploiement FOG et administration de parc</h3><p class="mt-2 text-sm" style="color: var(--color-text-muted);">Mise en place d’un serveur de déploiement FOG pour environ 70 postes, avec Veyon et intégration LDAP dans un contexte de gestion de parc informatique.</p></article>
+          <article class="timeline-card"><p class="text-sm font-bold" style="color: var(--color-primary);">2025</p><h3 class="mt-2 text-xl font-black">Stage de première année chez NETTEL</h3><p class="mt-2 text-sm" style="color: var(--color-text-muted);">Installation de postes IP/SIP, mise en œuvre de VPN IPsec, et découverte des exigences de terrain en environnement professionnel.</p></article>
+          <article class="timeline-card"><p class="text-sm font-bold" style="color: var(--color-primary);">2024</p><h3 class="mt-2 text-xl font-black">Baccalauréat général</h3><p class="mt-2 text-sm" style="color: var(--color-text-muted);">Obtention du baccalauréat général avec les spécialités SVT et HLP au Lycée René Descartes à Cournon d’Auvergne.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div class="section-divider"></div></div>
+
+    <section id="competences" class="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div class="mx-auto max-w-7xl space-y-8">
+        <div class="max-w-2xl reveal"><span class="pill">Compétences</span><h2 class="mt-5 text-3xl font-black tracking-tight sm:text-4xl">Compétences techniques construites en formation et en pratique</h2><p class="mt-4" style="color: var(--color-text-muted);">Cette section reprend les domaines sur lesquels j’ai déjà acquis des bases concrètes à travers mes cours, mes stages et mes projets techniques.</p></div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="skill-card reveal"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Administration réseau</p><h3 class="mt-3 text-xl font-black">Architecture, adressage et haute disponibilité</h3><p class="mt-3 text-sm" style="color: var(--color-text-muted);">Architecture réseau, commutation, routage, segmentation et notions de redondance et de disponibilité.</p></article>
+          <article class="skill-card reveal"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Équipements</p><h3 class="mt-3 text-xl font-black">Commutateurs, routeurs et pare-feu</h3><p class="mt-3 text-sm" style="color: var(--color-text-muted);">Manipulation et configuration d’équipements réseau dans des scénarios pédagogiques orientés entreprise.</p></article>
+          <article class="skill-card reveal"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Systèmes</p><h3 class="mt-3 text-xl font-black">Windows Server et Linux</h3><p class="mt-3 text-sm" style="color: var(--color-text-muted);">Administration de services, logique d’exploitation système et prise en main d’environnements serveurs.</p></article>
+          <article class="skill-card reveal"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Sécurité</p><h3 class="mt-3 text-xl font-black">VLAN, ports, accès distants</h3><p class="mt-3 text-sm" style="color: var(--color-text-muted);">Sécurisation des accès, segmentation réseau, VPN IPsec et bonnes pratiques de contrôle des communications.</p></article>
+          <article class="skill-card reveal"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Supervision</p><h3 class="mt-3 text-xl font-black">Nagios, Suricata, inventaire</h3><p class="mt-3 text-sm" style="color: var(--color-text-muted);">Suivi de parc, détection et supervision avec des outils tels que Nagios, OCS/GLPI et Suricata.</p></article>
+          <article class="skill-card reveal"><p class="text-sm font-bold uppercase tracking-[0.12em]" style="color: var(--color-text-muted);">Développement</p><h3 class="mt-3 text-xl font-black">HTML, CSS et projets web scolaires</h3><p class="mt-3 text-sm" style="color: var(--color-text-muted);">Création de pages web, intégration HTML/CSS et adaptation graphique à travers différents projets pédagogiques.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div class="section-divider"></div></div>
+
+    <section id="portfolio" class="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div class="mx-auto max-w-7xl space-y-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between reveal">
+          <div class="max-w-2xl"><span class="pill">Projets</span><h2 class="mt-5 text-3xl font-black tracking-tight sm:text-4xl">Projets scolaires et réalisations techniques</h2><p class="mt-4" style="color: var(--color-text-muted);">Voici une sélection de projets réalisés dans le cadre de ma formation, mêlant infrastructure réseau, gestion de parc et intégration web.</p></div>
+          <div class="flex flex-wrap gap-3" role="group" aria-label="Filtres portfolio">
+            <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Tous</button>
+            <button class="filter-btn" type="button" data-filter="reseau" aria-pressed="false">Réseau</button>
+            <button class="filter-btn" type="button" data-filter="systeme" aria-pressed="false">Système</button>
+            <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web</button>
+          </div>
+        </div>
+
+        <p id="project-count" class="text-sm reveal" style="color: var(--color-text-muted);">5 projets affichés</p>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="project-card p-4 sm:p-5 reveal" data-category="reseau"><div class="project-thumb"><div class="thumb-ui"><div class="mini-bar"></div><div class="grid gap-3"><div class="mini-box"><div class="mini-line"></div><div class="mini-line short"></div><div class="mini-line"></div></div><div class="grid grid-cols-2 gap-3"><div class="mini-box"><div class="mini-line"></div><div class="mini-line short"></div></div><div class="mini-box"><div class="mini-line"></div><div class="mini-line short"></div></div></div></div><div class="flex gap-2"><span class="pill">Pare-feu</span><span class="pill">AD</span></div></div><div class="project-overlay"><span class="overlay-chip">Agence GSB</span></div></div><div class="mt-5 space-y-3"><span class="pill">Réseau</span><h3 class="text-xl font-black">Agence GSB</h3><p class="text-sm" style="color: var(--color-text-muted);">Projet d’infrastructure complète avec pare-feu, load balancer, Active Directory et supervision dans un contexte d’entreprise simulé.</p></div></article>
+          <article class="project-card p-4 sm:p-5 reveal" data-category="systeme"><div class="project-thumb"><div class="thumb-ui"><div class="mini-bar" style="width: 48%;"></div><div class="grid gap-3"><div class="mini-box"><div class="mini-line short"></div><div class="mini-line"></div></div><div class="mini-box"><div class="mini-line"></div><div class="mini-line short"></div><div class="mini-line"></div></div></div><div class="flex gap-2"><span class="pill">Inventaire</span><span class="pill">Ticketing</span></div></div><div class="project-overlay"><span class="overlay-chip">OCS / GLPI</span></div></div><div class="mt-5 space-y-3"><span class="pill">Système</span><h3 class="text-xl font-black">OCS / GLPI</h3><p class="text-sm" style="color: var(--color-text-muted);">Mise en place d’un outil de gestion de parc avec inventaire matériel et logiciel, ainsi qu’une logique de suivi et de ticketing.</p></div></article>
+          <article class="project-card p-4 sm:p-5 reveal" data-category="reseau"><div class="project-thumb"><div class="thumb-ui"><div class="mini-bar" style="width: 38%;"></div><div class="grid gap-3"><div class="mini-box"><div class="mini-line"></div><div class="mini-line"></div><div class="mini-line short"></div></div><div class="mini-box"><div class="mini-line short"></div><div class="mini-line"></div></div></div><div class="flex gap-2"><span class="pill">Infra</span><span class="pill">Entreprise</span></div></div><div class="project-overlay"><span class="overlay-chip">TeckSio</span></div></div><div class="mt-5 space-y-3"><span class="pill">Réseau</span><h3 class="text-xl font-black">Infrastructure réseau entreprise TeckSio</h3><p class="text-sm" style="color: var(--color-text-muted);">Conception d’une infrastructure réseau pensée pour un environnement d’entreprise avec logique d’organisation, d’accès et de services.</p></div></article>
+          <article class="project-card p-4 sm:p-5 reveal" data-category="web"><div class="project-thumb"><div class="thumb-ui"><div class="mini-bar" style="width: 55%;"></div><div class="grid gap-3 grid-cols-2"><div class="mini-box"><div class="mini-line"></div><div class="mini-line short"></div><div class="mini-line"></div></div><div class="mini-box"><div class="mini-line short"></div><div class="mini-line"></div></div></div><div class="mini-box"><div class="mini-line"></div><div class="mini-line short"></div></div></div><div class="project-overlay"><span class="overlay-chip">CSS Zen Garden</span></div></div><div class="mt-5 space-y-3"><span class="pill">Web</span><h3 class="text-xl font-black">CSS Zen Garden</h3><p class="text-sm" style="color: var(--color-text-muted);">Travail d’intégration et de stylisation CSS visant à repenser une page existante tout en respectant une structure HTML imposée.</p></div></article>
+          <article class="project-card p-4 sm:p-5 reveal" data-category="web"><div class="project-thumb"><div class="thumb-ui"><div class="mini-bar" style="width: 44%;"></div><div class="mini-box"><div class="mini-line"></div><div class="mini-line short"></div><div class="mini-line"></div></div><div class="grid gap-3 grid-cols-3"><div class="mini-box"><div class="mini-line short"></div></div><div class="mini-box"><div class="mini-line short"></div></div><div class="mini-box"><div class="mini-line short"></div></div></div></div><div class="project-overlay"><span class="overlay-chip">Site HTML</span></div></div><div class="mt-5 space-y-3"><span class="pill">Web</span><h3 class="text-xl font-black">Site HTML “Publicité”</h3><p class="text-sm" style="color: var(--color-text-muted);">Création d’un site statique en HTML avec une mise en page orientée présentation visuelle et communication d’un message publicitaire.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div class="section-divider"></div></div>
+
+    <section id="contact" class="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div class="mx-auto max-w-7xl grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+        <div class="reveal"><span class="pill">Contact</span><h2 class="mt-5 text-3xl font-black tracking-tight sm:text-4xl">Me contacter</h2><p class="mt-4 max-w-xl" style="color: var(--color-text-muted);">Je suis actuellement étudiant en BTS SIO SISR et ouvert aux échanges autour des systèmes, des réseaux, de la cybersécurité et des projets techniques liés à mon parcours.</p><div class="mt-6 flex flex-wrap gap-3"><a href="https://linkedin.com/in/yanis-noel/" target="_blank" rel="noopener noreferrer" class="social-chip">LinkedIn</a><a href="mailto:yanoel.sio@gmail.com" class="social-chip">Email</a><a href="tel:+33749740434" class="social-chip">Téléphone</a></div></div>
+        <div class="contact-card p-4 sm:p-6 reveal"><div class="grid gap-4"><a class="contact-link" href="mailto:yanoel.sio@gmail.com" aria-label="Envoyer un email à yanoel.sio@gmail.com"><div><p class="text-sm" style="color: var(--color-text-muted);">Email</p><p class="mt-1 font-bold">yanoel.sio@gmail.com</p></div><span class="pill">Écrire</span></a><a class="contact-link" href="https://linkedin.com/in/yanis-noel/" target="_blank" rel="noopener noreferrer" aria-label="Voir le profil LinkedIn"><div><p class="text-sm" style="color: var(--color-text-muted);">LinkedIn</p><p class="mt-1 font-bold">linkedin.com/in/yanis-noel/</p></div><span class="pill">Ouvrir</span></a><a class="contact-link" href="tel:+33749740434" aria-label="Appeler le 07 49 74 04 34"><div><p class="text-sm" style="color: var(--color-text-muted);">Téléphone</p><p class="mt-1 font-bold">07 49 74 04 34</p></div><span class="pill">Appeler</span></a></div></div>
+        <a href="./CV-Yanis_Noel.pdf" download class="social-chip">
+          Télécharger mon CV
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="px-4 pb-10 sm:px-6 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col gap-3 rounded-[2rem] border px-5 py-5 sm:flex-row sm:items-center sm:justify-between" style="border-color: var(--color-border); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+      <p class="text-sm" style="color: var(--color-text-muted);">© <span id="current-year"></span> Yanis Noël. Tous droits réservés.</p>
+      <a href="#top" class="nav-link text-sm">Retour en haut</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const header = document.querySelector('.site-header');
+      const themeButton = document.querySelector('[data-theme-toggle]');
+      const sunIcon = document.querySelector('[data-icon-sun]');
+      const moonIcon = document.querySelector('[data-icon-moon]');
+      const menuToggle = document.querySelector('[data-menu-toggle]');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      const filterButtons = document.querySelectorAll('[data-filter]');
+      const projectCards = document.querySelectorAll('.project-card');
+      const projectCount = document.getElementById('project-count');
+      const yearTarget = document.getElementById('current-year');
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+      const sections = document.querySelectorAll('main section[id]');
+      const reveals = document.querySelectorAll('.reveal');
+      const darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
+      let currentTheme = darkMedia.matches ? 'dark' : 'light';
+      let manualTheme = false;
+
+      function updateThemeIcon(theme) {
+        const dark = theme === 'dark';
+        sunIcon.classList.toggle('hidden', !dark);
+        moonIcon.classList.toggle('hidden', dark);
+        themeButton.setAttribute('aria-label', dark ? 'Activer le mode clair' : 'Activer le mode sombre');
+      }
+      function applyTheme(theme) {
+        currentTheme = theme;
+        root.setAttribute('data-theme', theme);
+        updateThemeIcon(theme);
+      }
+      applyTheme(currentTheme);
+      darkMedia.addEventListener('change', (event) => { if (!manualTheme) applyTheme(event.matches ? 'dark' : 'light'); });
+      themeButton.addEventListener('click', () => { manualTheme = true; applyTheme(currentTheme === 'dark' ? 'light' : 'dark'); });
+      function updateHeader() { header.classList.toggle('scrolled', window.scrollY > 12); }
+      function closeMobileMenu() { mobileMenu.classList.add('hidden'); menuToggle.setAttribute('aria-expanded', 'false'); }
+      menuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+      mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+      function updateProjectCount() {
+        const visible = [...projectCards].filter(card => !card.hidden).length;
+        projectCount.textContent = `${visible} projet${visible > 1 ? 's' : ''} affiché${visible > 1 ? 's' : ''}`;
+      }
+      function applyFilter(filter) {
+        projectCards.forEach(card => {
+          const category = card.dataset.category;
+          card.hidden = !(filter === 'all' || category === filter);
+        });
+        filterButtons.forEach(button => {
+          const active = button.dataset.filter === filter;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+        updateProjectCount();
+      }
+      filterButtons.forEach(button => button.addEventListener('click', () => applyFilter(button.dataset.filter)));
+      function setActiveNav() {
+        let currentId = '';
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 140 && rect.bottom >= 140) currentId = section.id;
+        });
+        navLinks.forEach(link => {
+          const active = link.getAttribute('href') === `#${currentId}`;
+          link.classList.toggle('active', active);
+        });
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
+      }, { threshold: 0.14 });
+      reveals.forEach(item => observer.observe(item));
+      yearTarget.textContent = new Date().getFullYear();
+      updateProjectCount();
+      updateHeader();
+      setActiveNav();
+      window.addEventListener('scroll', () => { updateHeader(); setActiveNav(); }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
