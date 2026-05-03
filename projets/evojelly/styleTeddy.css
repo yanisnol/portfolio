@@ -1,0 +1,92 @@
+
+/*Style de tout les Textes*/
+p {
+    color:#000000;
+    font-size: 50px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+/*PhotoTeddy*/
+.prod {
+    width:55%;
+    height: 25%;
+    margin: 1%;
+    padding: 0%;
+    box-shadow: 5px 5px 5px #79766e;
+    border: 2px solid #79766e;
+    margin-left: 2%;
+    border-radius: 8px;
+}
+
+/*Prix Produit*/
+span {
+    position: absolute;
+    top: 33%;
+    left: 58%;
+    color: #d7232e;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+
+/*Nom Produit*/
+mark {
+    color: #d7232e;
+    background-color: #ffffff00;
+}
+
+
+/*Bouton de Acheter*/
+ajo {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color:rgb(255, 255, 255);
+    padding: 9px 50px;
+    background-color: #d7232e;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0,3s ease 0s;
+    position: relative;
+    margin-top: 430px;
+    box-shadow: 5px 5px 5px #79766e;
+}
+
+/*Texte 1*/
+.tt {
+    position: absolute;
+    top: 56%;
+    left: 56%;
+    color: #d7232e;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+
+/*Information nutritionnelles*/
+.tte {
+    position: absolute;
+    top: 51%;
+    left: 56%;
+    color: #d7232e;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+
+/*Explication TeddyMorph*/
+.ex {
+    position: absolute;
+    top: 35%;
+    left: 56%;
+    font-size: 25px;
+    color:#d7232e;
+}
+
+/*Nom TeddyMorph #2*/
+.td {
+    position: absolute;
+    top: 30%;
+    left: 56%;
+    font-size: 25px;
+    color:#d7232e;
+}

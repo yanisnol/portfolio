@@ -1,0 +1,177 @@
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.encadrer {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #d7232e; 
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px #ffcccb;
+}
+/*champs du formulaire */
+.form-rep {
+    margin-bottom: 20px;
+}
+/*écriture qui indique à quoi correspond le champs*/
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #d7232e; 
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ffcccb; 
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #fffaf0; 
+} 
+textarea {
+    resize: none;
+    height: 150px;
+}
+/*bouton envoyer de la page*/ 
+.btn-soumettre {
+    width: 100%;
+    padding: 10px;
+    background-color: #d7232e; 
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-soumettre:hover {
+    background-color: #d7232e; 
+    transform: scale(1.05); 
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 30px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.contact-info b:hover {
+    text-decoration: underline;
+    color: #0000ee;
+}
+
+/*pour le style de l'encadrer*/  
+.encadrer::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: -25px;
+    left: -25px;
+}
+
+.encadrer::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    bottom: -25px;
+    right: -25px;
+}
+/* conteneur principal de la FAQ */
+.faq-contenu {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;/*pour que rien ne dépasse*/
+    box-sizing: border-box;
+}
+
+/* titre de la FAQ */
+.faq-contenu h2 {
+    text-align: center;
+    color: #d7232e;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Masquer les cases à cocher */
+.faq-checkbox {
+    display: none;
+}
+
+/* style de chacune des questions de la FAQ */
+.faq-question {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 15px 20px;
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    list-style: none;
+    box-sizing: border-box;
+    white-space: normal;
+}
+
+.faq-question:hover {
+    background-color: #dcdcdc;
+}
+
+/* style des réponses de la FAQ pour que ça soit caché */
+.faq-réponse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #fafafa;
+    padding: 0 16px;
+    margin-bottom: 10px;
+    border-left: 4px solid #d7232e;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+/*pour qu'on voit la réponse quand la question est coché */
+.faq-checkbox:checked + .faq-question + .faq-réponse {
+    max-height: 200px; /*taille de la question*/
+    padding: 15px 15px;
+}
+footer {
+    background-color: #ffbf00; 
+    color: #fff; 
+    text-align: center; 
+    padding: 20px 0; 
+    width: 100%; 
+    position: relative; 
+    height: 20px;
+}
+footer p {
+    margin: 0; 
+    font-size: 14px; 
+}

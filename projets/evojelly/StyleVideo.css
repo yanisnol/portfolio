@@ -1,0 +1,9 @@
+video {
+display: block;
+margin: auto;
+margin-top: 7.5px;
+border: 10px solid #000000;
+border-radius: 25px;
+aspect-ratio: 16/9;
+width: 75%;
+}
